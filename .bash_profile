@@ -14,7 +14,6 @@ export PS1="\w 🍄  ⭐️  ➜ "
 echo ""
 
 
-
 showlist () {
 	echo "======================================="
 	echo "SHORTCUT    ||       USAGE            |"
@@ -26,6 +25,7 @@ showlist () {
 	echo "cdssh       ||  go to ssh folder      |"	
 	echo "awslogin    ||  quick ec2 login       |"
 	echo "Desktop     ||  back to desktop       |"
+	echo "irssi       ||  chat channel          |"
 	echo "======================================="
 }
 
@@ -37,7 +37,6 @@ echo ""
 
 
 ######################## Alias ##############################
-
 
 alias code='open /Applications/Visual\ Studio\ Code.app'
 alias editprofile='cd ~; mate .bash_profile'
@@ -59,7 +58,6 @@ alias qfind="find . -name "
 
 
 ######################## Custom Functions ##############################
-
 
 mkcd () {
 		mkdir "$1"
