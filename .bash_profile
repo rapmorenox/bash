@@ -210,8 +210,8 @@ savebashprofile() {
 	git add .bash_profile;
 	git commit -m "Auto Bashprofile backup"
 	git push
-	rm /Users/rmoreno/Projects/bashprofile/bash/.bash_profile
- 
+	rm /Users/rmoreno/Projects/bashprofile/bash/.bash_profile;
+ 	cd ~
 }
 
 
