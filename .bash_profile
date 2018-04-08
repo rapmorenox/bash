@@ -14,16 +14,8 @@ export PS1="\w 🍄  ⭐️  ➜ "
 echo ""
 
 
-# rapsite() {
-# 	cd /Users/rmoreno/Documents/ssh
-# 	ssh -i "Raph-AWS-krypt.co.pem" ec2-user@ec2-52-221-190-83.ap-southeast-1.compute.amazonaws.com;
-# 	sudo yum update
-# 	clear
-# }
 
 showlist () {
-
-
 	echo "======================================="
 	echo "SHORTCUT    ||       USAGE            |"
 	echo "======================================="
@@ -35,8 +27,6 @@ showlist () {
 	echo "awslogin    ||  quick ec2 login       |"
 	echo "Desktop     ||  back to desktop       |"
 	echo "======================================="
-
-
 }
 
 
@@ -44,10 +34,6 @@ showlist
 
 echo ""
 echo ""
-
-
-
-
 
 
 ######################## Alias ##############################
@@ -213,12 +199,6 @@ savebashprofile() {
 	rm /Users/rmoreno/Projects/bashprofile/bash/.bash_profile;
  	cd ~
 }
-
-
-
-
-
-
 
 
 
