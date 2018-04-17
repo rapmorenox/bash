@@ -14,21 +14,6 @@ export PS1="\w 🍄  ⭐️  ➜ "
 echo ""
 
 
-# showlist () {
-#
-# 	echo "======================================="
-# 	echo "SHORTCUT    ||       USAGE            |"
-# 	echo "======================================="
-# 	echo "cdshh       ||  ssh folder            |"
-# 	echo "projects    ||  projects folder       |"
-# 	echo "notes       ||  notebok app           |"
-# 	echo "links       ||  web browser app       |"
-# 	echo "cdssh       ||  go to ssh folder      |"
-# 	echo "awslogin    ||  quick ec2 login       |"
-# 	echo "Desktop     ||  back to desktop       |"
-# 	echo "irssi       ||  chat channel          |"
-# 	echo "======================================="
-# }
 
 showlist () {
 	
@@ -51,14 +36,7 @@ showlist () {
  
 }
 
-
-
-
 showlist
-
-
-
-
 
 
 ######################## Alias ##############################
@@ -79,6 +57,7 @@ alias mv='mv -iv'
 alias mkdir='mkdir -pv'                 
 alias ll='ls -FGlAhp'
 alias qfind="find . -name " 
+
 
 
 
@@ -176,7 +155,13 @@ wifiz() {
 		
 	}
 
-######################## GIT PULL ALL ##############################
+
+
+
+
+
+######################## Git Pushes ##############################
+
 
 pullall() {
 	# bitbucket
@@ -189,106 +174,65 @@ pullall() {
 	cd /Users/rmoreno/Projects/codecommit/project-pi-appflow ; git pull;
 	cd /Users/rmoreno/Projects/codecommit/project-pi-ui ; git pull;
 	cd /Users/rmoreno/Projects/codecommit/rmoreno-ui ; git pull;
+
+}
+
+
+	msgCase() {
+		case "$AddMsg" in
+			[yY] | [yY][eE][sS])
+			echo "Posting Auto Response Message"
+			git commit -m"Auto-commit-push";
+			;;
+			*)
+			read -p "Type message here: " gitmessage;
+			git commit -m"$gitmessage";
+		esac
+	}
+
+
+
+	pushprojectx() {
+		cd /Users/rmoreno/projects/projectx
+		git add *;
+		read -p "Auto Message? " AddMsg
+		msgCase
+		git push;
+		cd ~;
+
+	}
+
+
+	pushui() {
+		cd /Users/rmoreno/Projects/rmoreno-ui
+		git add *;
+		read -p "Auto Message? " AddMsg
+		msgCase
+		git push;
+		cd ~;
+	}
+
+
+	savebashprofile() {
+		cp /Users/rmoreno/.bash_profile /Users/rmoreno/Projects/github/bash;
+		cd /Users/rmoreno/Projects/github/bash;
+		git add .bash_profile;
+		git commit -m "Auto Bashprofile backup"
+		git push
+	 	cd ~
+	}
+
+	gitfix() {
+		git config remote.origin.push HEAD
 	
-}
-
-
-
-######################## Git Pushes ##############################
-
-msgCase() {
-	case "$AddMsg" in
-		[yY] | [yY][eE][sS])
-		echo "Posting Auto Response Message"
-		git commit -m"Auto-commit-push";
-		;;
-		*)
-		read -p "Type message here: " gitmessage;
-		git commit -m"$gitmessage";
-	esac
-}
-
-
-pushprojectx() {
-	cd /Users/rmoreno/projects/projectx
-	git add *;
-	read -p "Auto Message? " AddMsg
-	msgCase
-	git push;
-	cd ~;
-}
-
-pushui() {
-	cd /Users/rmoreno/Projects/rmoreno-ui
-	git add *;
-	read -p "Auto Message? " AddMsg
-	msgCase
-	git push;
-	cd ~;
-}
-
-
-savebashprofile() {
-	cp /Users/rmoreno/.bash_profile /Users/rmoreno/Projects/github/bash;
-	cd /Users/rmoreno/Projects/github/bash;
-	git add .bash_profile;
-	git commit -m "Auto Bashprofile backup"
-	git push
-	rm /Users/rmoreno/Projects/github/bash/.bash_profile;
- 	cd ~
-}
-
-
-
-######################## Auto Pushes ##############################
-
-
-
-
-
-#
-#
-# pushgit() {
-# 	cd /Users/rmoreno/Documents/sandbox/travel-insurance-mobile-app /Users/rmoreno/Documents/sandbox/travel-insurance-mobile-app;
-# 	git add *;
-# 	read -p "Auto Message? " AddMsg
-# 	msgCase
-# 	git push;
-# 	cd ~;
-# }
-
-
-# pushnotes() {
-# 	cd /Users/rmoreno/Documents/sandbox/codedump;
-# 	git add *;
-# 	read -p "Auto Message? " AddMsg
-# 	msgCase
-# 	git push;
-# 	cd ~;
-# }
-#
-#
-# pushprofile() {
-# 	cp /Users/rmoreno/.bash_profile /Users/rmoreno/Documents/sandbox/codedump;
-# 	cd /Users/rmoreno/Documents/sandbox/codedump;
-# 	git add .bash_profile;
-# 	read -p "Auto Message? " AddMsg
-# 	msgCase
-# 	git push;
-# 	cd ~;
-# }
-
-
-#test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-# dd if=/dev/zero of=output.dat will create a unlimted file
-
-
-# GIT START
-
-
-# GIT ENDS
-
-
+	}
+	
+	
+	#test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+	# dd if=/dev/zero of=output.dat will create a unlimted file
+	
+	
+	
 # added by Anaconda3 4.4.0 installer
 export PATH="/Users/rmoreno/anaconda3/bin:$PATH"
 
@@ -299,4 +243,3 @@ export PATH="/anaconda3/bin:$PATH"
 
 # added by Anaconda3 5.1.0 installer
 export PATH="/Applications/anaconda3/bin:$PATH"
-
