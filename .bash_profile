@@ -7,37 +7,61 @@ source ~/.iterm2_shell_integration.bash
 imgcat /Users/rmoreno/Documents/pictquote/mario-tail.gif
 
 
-echo "Bash Profile version 1.7
+echo -e '\033[0;93m'"Bash Profile version 1.7
 Raphael Moreno @ 2018"
 
 export PS1="\w 🍄  ⭐️  ➜ "
 echo ""
 
 
+# showlist () {
+#
+# 	echo "======================================="
+# 	echo "SHORTCUT    ||       USAGE            |"
+# 	echo "======================================="
+# 	echo "cdshh       ||  ssh folder            |"
+# 	echo "projects    ||  projects folder       |"
+# 	echo "notes       ||  notebok app           |"
+# 	echo "links       ||  web browser app       |"
+# 	echo "cdssh       ||  go to ssh folder      |"
+# 	echo "awslogin    ||  quick ec2 login       |"
+# 	echo "Desktop     ||  back to desktop       |"
+# 	echo "irssi       ||  chat channel          |"
+# 	echo "======================================="
+# }
 
 showlist () {
-	echo "======================================="
-	echo "SHORTCUT    ||       USAGE            |"
-	echo "======================================="
-	echo "cdshh       ||  ssh folder            |"
-	echo "projects    ||  projects folder       |"
-	echo "notes       ||  notebok app           |"
-	echo "links       ||  web browser app       |"
-	echo "cdssh       ||  go to ssh folder      |"	
-	echo "awslogin    ||  quick ec2 login       |"
-	echo "Desktop     ||  back to desktop       |"
-	echo "======================================="
+	
+	echo -e '\033[1;31m' "
+ =======================================
+ SHORTCUT    ||       USAGE            |
+ =======================================
+ cdshh       ||  ssh folder            |
+ projects    ||  projects folder       |
+ notes       ||  notebok app           |
+ links       ||  web browser app       |
+ cdssh       ||  go to ssh folder      |
+ awslogin    ||  quick ec2 login       |
+ Desktop     ||  back to desktop       |
+ irssi       ||  chat channel          |
+ ======================================="
+ 
+ echo ""
+ echo -e '\033[0;37m' ""
+ 
 }
+
+
 
 
 showlist
 
-echo ""
-echo ""
+
+
+
 
 
 ######################## Alias ##############################
-
 
 alias code='open /Applications/Visual\ Studio\ Code.app'
 alias editprofile='cd ~; mate .bash_profile'
@@ -53,13 +77,12 @@ alias speedtest="speedtest-cli"
 alias cp='cp -iv'                          
 alias mv='mv -iv'                          
 alias mkdir='mkdir -pv'                 
-alias ll='ls -FGlAhp'                      
+alias ll='ls -FGlAhp'
 alias qfind="find . -name " 
 
 
 
 ######################## Custom Functions ##############################
-
 
 mkcd () {
 		mkdir "$1"
@@ -153,6 +176,21 @@ wifiz() {
 		
 	}
 
+######################## GIT PULL ALL ##############################
+
+pullall() {
+	# bitbucket
+	cd /Users/rmoreno/Projects/bitbucket/projectx ; git pull;
+	# github
+	cd /Users/rmoreno/Projects/github/bash ; git pull;
+	cd /Users/rmoreno/Projects/github/projectx ; git pull;
+	cd /Users/rmoreno/Projects/github/works ; git pull;
+	# codecommit
+	cd /Users/rmoreno/Projects/codecommit/project-pi-appflow ; git pull;
+	cd /Users/rmoreno/Projects/codecommit/project-pi-ui ; git pull;
+	cd /Users/rmoreno/Projects/codecommit/rmoreno-ui ; git pull;
+	
+}
 
 
 
@@ -191,14 +229,20 @@ pushui() {
 
 
 savebashprofile() {
-	cp /Users/rmoreno/.bash_profile /Users/rmoreno/Projects/bashprofile/bash;
-	cd /Users/rmoreno/Projects/bashprofile/bash;
+	cp /Users/rmoreno/.bash_profile /Users/rmoreno/Projects/github/bash;
+	cd /Users/rmoreno/Projects/github/bash;
 	git add .bash_profile;
 	git commit -m "Auto Bashprofile backup"
 	git push
-	rm /Users/rmoreno/Projects/bashprofile/bash/.bash_profile;
+	rm /Users/rmoreno/Projects/github/bash/.bash_profile;
  	cd ~
 }
+
+
+
+######################## Auto Pushes ##############################
+
+
 
 
 
@@ -239,6 +283,12 @@ savebashprofile() {
 # dd if=/dev/zero of=output.dat will create a unlimted file
 
 
+# GIT START
+
+
+# GIT ENDS
+
+
 # added by Anaconda3 4.4.0 installer
 export PATH="/Users/rmoreno/anaconda3/bin:$PATH"
 
@@ -249,3 +299,4 @@ export PATH="/anaconda3/bin:$PATH"
 
 # added by Anaconda3 5.1.0 installer
 export PATH="/Applications/anaconda3/bin:$PATH"
+
